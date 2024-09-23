@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLaMA Text-to-Text</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+        }
+        button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>LLaMA Text-to-Text</h1>
+    <form method="post">
+        {% csrf_token %}
+        <textarea name="input_text" placeholder="Entrez votre texte ici">{{ input_text }}</textarea>
+        <br>
+        <button type="submit">Générer</button>
+    </form>
+    {% if generated_text %}
+        <h2>Texte généré :</h2>
+        <p>{{ generated_text }}</p>
+    {% endif %}
+</body>
+</html>
